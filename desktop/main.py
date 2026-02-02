@@ -26,6 +26,11 @@ class MainWindow(QMainWindow):
         self.btn_upload.setStyleSheet("font-size: 16px; padding: 10px; background-color: #007bff; color: white;")
         self.btn_upload.clicked.connect(self.upload_file)
         self.layout.addWidget(self.btn_upload)
+        # Add the PDF Download Button
+        self.btn_pdf = QPushButton("Download PDF Report")
+        self.btn_pdf.setStyleSheet("background-color: #dc3545; color: white; font-weight: bold; padding: 10px; margin-top: 10px;")
+        self.btn_pdf.clicked.connect(self.download_pdf) # This connects the button to the function
+        self.layout.addWidget(self.btn_pdf)
 
         # 2. Status Label
         self.status_label = QLabel("Please upload a file to begin.")
@@ -78,6 +83,12 @@ class MainWindow(QMainWindow):
                 self.status_label.setText("Error: Could not connect to Django.")
                 QMessageBox.critical(self, "Connection Error", 
                                      "Make sure Django is running on Port 5000!\n\n" + str(e))
+                
+    def download_pdf(self):
+        import webbrowser
+        webbrowser.open("http://127.0.0.1:5000/api/export-pdf/")
+        self.status_label.setText("Opening PDF in browser...")
+
 
     def update_ui(self, data):
         # 1. Update Summary Tab

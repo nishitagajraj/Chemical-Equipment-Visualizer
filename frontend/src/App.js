@@ -70,6 +70,13 @@ function App() {
           <button className="btn btn-primary" onClick={handleUpload}>
             Analyze Data
           </button>
+           
+           <button 
+  className="btn btn-danger ms-2" 
+  onClick={() => window.open('http://127.0.0.1:5000/api/export-pdf/', '_blank')}
+>
+  Download PDF Report
+</button>
         </div>
         {error && <p className="text-danger text-center mt-2">{error}</p>}
       </div>
