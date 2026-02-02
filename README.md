@@ -1,59 +1,69 @@
-🚀 Advanced Chemical Equipment Analyzer
-A Professional-Grade Hybrid Architecture Submission
-This repository contains a complete Enterprise-Level Hybrid System designed for industrial data monitoring. It demonstrates the ability to build a robust, scalable backend that powers multiple client platforms simultaneously.
+# Chemical Equipment Analyzer (Hybrid System) 🚀
 
-💎 Project Qualities & Engineering Excellence
-1. True Hybrid Integration
-Unlike standalone apps, this project uses a Single Source of Truth architecture.
+### **Overview**
+This project is a hybrid data analysis tool designed to process chemical equipment datasets. It features a **Django-based central API** that serves two different frontends:
+* **Web Dashboard**: Built with React for easy access and data visualization.
+* **Desktop Client**: Built with PyQt5 (Python) for a dedicated, high-performance desktop experience.
 
-The Brain: A Django REST API manages the heavy lifting.
+The core goal of the project is to provide engineers with a unified platform to upload CSV data, visualize trends, and export professional PDF reports—regardless of which device they are using.
 
-The Reach: Whether an engineer is on a browser (React) or a workstation (PyQt5), the data remains consistent and synchronized.
+---
 
-2. Professional Reporting Engine
-I integrated a dedicated PDF Generation Service using ReportLab. This isn't just a "print screen" function; it’s a backend process that:
+### **Key Features**
+* **Unified Backend**: A single Django REST API handles all logic, ensuring data consistency across Web and Desktop.
+* **PDF Generation**: Automated report generation using `ReportLab`, allowing users to download analysis summaries instantly.
+* **Cross-Platform UI**: 
+    * **React** for a responsive, modern web experience.
+    * **PyQt5** for a robust desktop interface with native file-handling capabilities.
+* **CSV Processing**: Backend logic to parse and analyze equipment data from uploaded files.
 
-Extracts raw data from the database.
+---
 
-Applies professional formatting.
+### **Tech Stack**
+* **Backend**: Django, Django REST Framework, ReportLab (PDF generation).
+* **Web Frontend**: React.js, Axios, Bootstrap.
+* **Desktop Frontend**: Python, PyQt5, Requests.
+* **Database**: SQLite (default Django DB).
 
-Generates a downloadable .pdf document available to both Web and Desktop users.
+---
 
-3. Scalable System Design
-The project is built with Separation of Concerns:
+### **Setup & Installation**
 
-Frontend: Purely for UI/UX and data visualization.
-
-Backend: Handles security, data parsing, and report generation.
-
-Result: You can add a Mobile App or a CLI tool in the future without changing a single line of backend code.
-Feature,Quality,Technology
-API Architecture,RESTful Endpoints,Django / Python
-Cross-Origin Support,CORS-Headers Security,Middleware Integration
-Data Visualization,Interactive Dashboards,React.js / Axios
-Native Integration,Multi-threaded UI,PyQt5
-Reporting,Programmatic PDF Creation,ReportLab
-
-🚀 Quick Start Guide
-Step 1: The API Server
-Bash
+```bash
+# 1. SETUP BACKEND (Django)
+# Install all required dependencies
 pip install django django-cors-headers reportlab requests
+
+# Apply database migrations
 python manage.py migrate
+
+# Start the server on Port 8000
 python manage.py runserver 8000
-Step 2: The Web Interface
-Bash
-cd frontend && npm install && npm start
-Step 3: The Desktop Client
-Bash
+
+# 2. SETUP WEB FRONTEND (React)
+# Navigate to frontend folder
+cd frontend
+npm install
+npm start
+
+# 3. SETUP DESKTOP APP (PyQt5)
+# Run from the project root in a new terminal
 python desktop/main.py
 
-🏗️ Folder Structure Highlights
-core/: Contains the Django logic, views.py (API logic), and urls.py.
+### **System Architecture & Environment Setup**
 
-frontend/: The React source code including component-based UI.
+```text
+1. SYSTEM DESIGN:
+   The application uses a "Single Source of Truth" architecture.
+   - BACKEND: Django REST API handles logic, data parsing, and PDF generation.
+   - CLIENTS: Both the React Web App and PyQt5 Desktop App consume the same endpoints.
+   - CONSISTENCY: Centralized processing ensures identical results across all platforms.
 
-desktop/: The PyQt5 application logic and desktop-specific networking.
-
-
-Nishita Gajraj Technical Assessment for FOSSEE Internship.
-This project reflects a commitment to clean code, modular architecture, and user-centric design.
+2. LOCAL ENVIRONMENT NOTE:
+   If you encounter port-binding errors (e.g., Errno 11001 or Permission Denied):
+   - The system is port-agnostic.
+   - Change the port in 'runserver [PORT]' to 8000 or 8080.
+   - Update the API_URL in the frontend code to match the new port.
+   - Running the terminal as Administrator can resolve most permission issues.
+**Author**
+Developed by **Nishita Gajraj **as part of the FOSSEE/Internship Technical Assessment.
