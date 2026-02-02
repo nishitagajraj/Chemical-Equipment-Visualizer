@@ -50,20 +50,23 @@ npm start
 # Run from the project root in a new terminal
 python desktop/main.py
 
+---
+
 ### **System Architecture & Environment Setup**
 
-```text
-1. SYSTEM DESIGN:
+**1. SYSTEM DESIGN:**
    The application uses a "Single Source of Truth" architecture.
    - BACKEND: Django REST API handles logic, data parsing, and PDF generation.
    - CLIENTS: Both the React Web App and PyQt5 Desktop App consume the same endpoints.
    - CONSISTENCY: Centralized processing ensures identical results across all platforms.
 
-2. LOCAL ENVIRONMENT NOTE:
+**2. LOCAL ENVIRONMENT NOTE:**
    If you encounter port-binding errors (e.g., Errno 11001 or Permission Denied):
    - The system is port-agnostic.
    - Change the port in 'runserver [PORT]' to 8000 or 8080.
    - Update the API_URL in the frontend code to match the new port.
    - Running the terminal as Administrator can resolve most permission issues.
+
+
 **Author**
 Developed by **Nishita Gajraj **as part of the FOSSEE/Internship Technical Assessment.
