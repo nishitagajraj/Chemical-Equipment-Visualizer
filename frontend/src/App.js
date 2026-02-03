@@ -47,7 +47,7 @@ function App() {
 
     try {
       // Note: We use port 8080 because that's where Django is listening
-      const response = await axios.post('http://127.0.0.1:5000/api/upload/', formData, {
+      const response = await axios.post('http://127.0.0.1:800/api/upload/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -73,7 +73,7 @@ function App() {
            
            <button 
   className="btn btn-danger ms-2" 
-  onClick={() => window.open('http://127.0.0.1:5000/api/export-pdf/', '_blank')}
+  onClick={() => window.open('http://127.0.0.1:800/api/export-pdf/', '_blank')}
 >
   Download PDF Report
 </button>
