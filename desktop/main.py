@@ -7,7 +7,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
 # SETTINGS
-API_URL = "http://127.0.0.1:5000/api/upload/"
+API_URL = "http://127.0.0.1:800/api/upload/"
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -82,11 +82,11 @@ class MainWindow(QMainWindow):
             except Exception as e:
                 self.status_label.setText("Error: Could not connect to Django.")
                 QMessageBox.critical(self, "Connection Error", 
-                                     "Make sure Django is running on Port 5000!\n\n" + str(e))
+                                     "Make sure Django is running on Port 800!\n\n" + str(e))
                 
     def download_pdf(self):
         import webbrowser
-        webbrowser.open("http://127.0.0.1:5000/api/export-pdf/")
+        webbrowser.open("http://127.0.0.1:800/api/export-pdf/")
         self.status_label.setText("Opening PDF in browser...")
 
 
