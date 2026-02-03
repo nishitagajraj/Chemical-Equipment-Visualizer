@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path('upload/', EquipmentAnalysisView.as_view(), name='file-upload'),
-    path('api/export-pdf/', views.export_pdf),
+    path('export-pdf/', views.export_pdf, name='export-pdf'),
 ]

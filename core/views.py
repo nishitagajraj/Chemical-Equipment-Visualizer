@@ -3,8 +3,12 @@ from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
 from .models import EquipmentUpload
 from .serializers import EquipmentUploadSerializer
-import pandas as pd
+from django.http import HttpResponse
 import os
+from django.shortcuts import render
+import pandas as pd
+from reportlab.pdfgen import canvas
+import io
 
 class EquipmentAnalysisView(APIView):
     parser_classes = (MultiPartParser, FormParser)
